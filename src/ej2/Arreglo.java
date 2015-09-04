@@ -25,6 +25,8 @@ public class Arreglo {
 		if(tamaño == 0) //O(1)
 			mediana = n;
 		else if((tamaño % 2) == 1){ //Todas las condiciones tienen la misma complejidad O(log (n / 2))
+			//Tamaño siempre tiene uno menos que la cantidad de elementos real (ya que se suma al final)
+			//Acá el arreglo tiene tamaño par
 			if (n < mediana){ 
 				menor.add(n); //O(log (n/2))
 				mayor.add(mediana); //O(log (n/2))
@@ -47,7 +49,6 @@ public class Arreglo {
 			}
 		}
 		tamaño++;
-		//System.out.print(menor.size() + "," + mayor.size() + "|");
 	}
 
 }

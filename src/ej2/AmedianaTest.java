@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+import java.util.Random;
 import org.junit.Test;
 
 public class AmedianaTest{
@@ -64,17 +65,25 @@ public class AmedianaTest{
 		System.out.println("Ok.");
 	}
 	
-	@Test
-	public void testMejorCaso(){
-		int[] A={1, 4, 8, 23, 33, 122};
+	//TEST DE PERFORMANCE
+
+	public void testear(int[] A){
 		Amediana n = new Amediana();
 		A = n.formar(A);
 		String resultado = "";
 		for (int i = 0; i < A.length; i++)
 			resultado += Integer.toString(A[i]) + ((i != A.length - 1) ? " " : ""); //Solo agrego espacio si no es el último caracter
-		assertEquals("1 2 4 6 8 15", resultado);
 		System.out.println(resultado);
 		System.out.println("Ok.");
+	}
+	
+	@Test
+	public void testGenerador(){
+		Random rand = new Random();
+		int[] A = new int[17000];
+		for (int i = 0; i < A.length; i++)
+			A[i] = rand.nextInt(10000000); //de 0 al valor que le indique
+		testear(A);
 	}
 	
 	@Test
